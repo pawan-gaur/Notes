@@ -1,12 +1,16 @@
 package com.pgaur.notes.model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "tasks", catalog = "notes_db")
+@Table(name = "notes", catalog = "notes")
 public class Notes {
 
 	@Id
@@ -14,6 +18,9 @@ public class Notes {
 	private Integer id;
 	private String title;
 	private String description;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date doc;
+	private Date dou;
 
 	public Notes() {
 	}
@@ -47,9 +54,25 @@ public class Notes {
 		this.description = description;
 	}
 
+	public Date getDoc() {
+		return doc;
+	}
+
+	public void setDoc(Date doc) {
+		this.doc = doc;
+	}
+
+	public Date getDou() {
+		return dou;
+	}
+
+	public void setDou(Date dou) {
+		this.dou = dou;
+	}
+
 	@Override
 	public String toString() {
-		return "Notes [id=" + id + ", title=" + title + ", description=" + description + "]";
+		return "Notes [title=" + title + ", description=" + description + ", doc=" + doc + ", dou=" + dou + "]";
 	}
 
 }

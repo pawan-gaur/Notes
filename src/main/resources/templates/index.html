@@ -40,6 +40,8 @@
 							<th>Id</th>
 							<th>Title</th>
 							<th>Description</th>
+							<th>Created On</th>
+							<th>Last Update</th>
 							<th>Action</th>
 						</tr>
 					</thead>
@@ -48,6 +50,8 @@
 							<td th:text="${notes.id}"></td>
 							<td th:text="${notes.title}"></td>
 							<td th:text="${notes.description}"></td>
+							<td th:text="${notes.doc}"></td>
+							<td th:text="${notes.dou}"></td>
 							<td><a th:href="@{findOne/(id=${notes.id})}"
 								class="btn btn-primary eBtn">Edit</a> <a
 								th:href="@{delete/(id=${notes.id})}"

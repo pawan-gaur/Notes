@@ -1,5 +1,7 @@
 package com.pgaur.notes.controller;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
@@ -27,6 +29,7 @@ public class NotesController {
 	
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(Notes notes) {
+		notes.setDoc(new Date());
 		noteRepository.save(notes);
 		return "redirect:/";
 	}
